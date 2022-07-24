@@ -90,6 +90,9 @@ class Solution {
     }
 
     public ListNode sortList(ListNode head) {
+        if (head == null){
+            return null;
+        }
         int[] a = getArray(head);
         mergeSort(a, 0, a.length-1);
         return getHead(a);
