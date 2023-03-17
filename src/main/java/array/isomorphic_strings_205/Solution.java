@@ -8,12 +8,9 @@ public class Solution {
         Map<Character, Character> st = new HashMap<>();
         Map<Character, Character> ts = new HashMap<>();
         for (int i = 0; i < s.length(); ++i) {
-            Character c = st.get(s.charAt(i));
-            Character c1 = ts.get(t.charAt(i));
-            if (c != null && t.charAt(i) != c) {
-                return false;
-            }
-            if (c1 != null && s.charAt(i) != c1) {
+            Character c1 = st.get(s.charAt(i));
+            Character c2 = ts.get(t.charAt(i));
+            if (c1 != null && t.charAt(i) != c1 || c2 != null && s.charAt(i) != c2) {
                 return false;
             }
             st.put(s.charAt(i), t.charAt(i));
