@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 
 //https://www.youtube.com/watch?v=FzTYfsmtOso
-class Solution {
+class Solution1 {
 
     public List<String> findRepeatedDnaSequences(String s) {
         HashSet<String> set = new HashSet<>();
