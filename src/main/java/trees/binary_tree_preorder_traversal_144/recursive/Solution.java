@@ -1,4 +1,4 @@
-package trees.binary_tree_preorder_traversal_144.binary_tree_preorder_traversal_144.recursive;
+package trees.binary_tree_preorder_traversal_144.recursive;
 
 import java.util.ArrayList;
 import java.util.List;
