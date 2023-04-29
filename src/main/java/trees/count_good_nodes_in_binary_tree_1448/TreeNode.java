@@ -1,8 +1,5 @@
 package trees.count_good_nodes_in_binary_tree_1448;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TreeNode {
     int val;
     TreeNode left;
