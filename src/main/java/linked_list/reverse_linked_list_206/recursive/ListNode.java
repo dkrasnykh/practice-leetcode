@@ -1,4 +1,4 @@
-package linked_list.reverse_linked_list_206.iterative;
+package linked_list.reverse_linked_list_206.recursive;
 
 public class ListNode {
     int val;
@@ -18,18 +18,17 @@ public class ListNode {
 }
 
 class Solution {
-    public ListNode reverseList(ListNode head) {
-        ListNode curr = head;
-        ListNode prev = null;
-        while (curr != null) {
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+    private ListNode recursive(ListNode prev, ListNode curr){
+        if(curr == null){
+            return prev;
         }
-        return prev;
+        ListNode next = curr.next;
+        curr.next = prev;
+        return recursive(curr, next);
     }
-
+    public ListNode reverseList(ListNode head) {
+        return recursive(null, head);
+    }
 
     public static void main(String[] args) {
         Solution s = new Solution();
@@ -43,5 +42,6 @@ class Solution {
         node3.next = node4;
         node4.next = node5;
         ListNode res = s.reverseList(node1);
+        int test = 5;
     }
 }
