@@ -7,46 +7,6 @@ public class Solution {
             int m = l + (r - l) / 2;
             if (nums[m - 1] > nums[m]) {
                 return m;
-            } else if (nums[m] > nums[r]) {
-                l = m + 1;
-            } else {
-                r = m - 1;
-            }
-        }
-        return 0;
-    }
-
-    private int findMin1(int[] nums, int l, int r) {
-        while (l <= r) {
-            int m = l + (r - l) / 2;
-            if (m > 0 && nums[m - 1] > nums[m]) {
-                return m;
-            } else if (nums[l] == nums[m] && nums[m] == nums[r]) {
-                int i1 = findMin1(nums, l + 1, m);
-                int i2 = findMin1(nums, m + 1, r);
-                if (i1 == 0 && i2 == 0) {
-                    return 0;
-                }
-                if (i1 != 0) {
-                    r = m - 1;
-                } else if (i2 != 0) {
-                    l = m + 1;
-                }
-            } else if (nums[m] > nums[r]) {
-                l = m + 1;
-            } else {
-                r = m - 1;
-            }
-        }
-        return 0;
-    }
-
-    private int findMin2(int[] nums) {
-        int l = 1, r = nums.length - 1;
-        while (l <= r) {
-            int m = l + (r - l) / 2;
-            if (nums[m - 1] > nums[m]) {
-                return m;
             } else if (m!=l && m!=r && nums[l] == nums[m] && nums[m] == nums[r]) {
                 for (int i = l + 1; i <= r; ++i) {
                     if (nums[i - 1] > nums[i]) {
@@ -78,9 +38,7 @@ public class Solution {
     }
 
     public boolean search(int[] nums, int target) {
-        int ind = findMin2(nums);
-        //boolean res1 = binarysearch(nums, target, 0, ind - 1);
-        //boolean res2 = binarysearch(nums, target, ind, nums.length - 1);
+        int ind = findMin(nums);
         return binarysearch(nums, target, 0, ind - 1) || binarysearch(nums, target, ind, nums.length - 1);
     }
 
