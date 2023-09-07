@@ -1,8 +1,13 @@
 package sliding_window.longest_repeating_character_replacement_424;
 
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class Solution {
     class Pair {
@@ -91,6 +96,22 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+        //Instant instant = Instant.ofEpochMilli(System.currentTimeMillis());
+
+        Map<String, String> map = new HashMap<>();
+
+
+
+        StringBuilder sb = new StringBuilder();
+
+
+        String email = "test@leetcode.com";
+        System.out.println(email.indexOf('@')); //4
+
+        System.out.println(Instant.ofEpochMilli(1692625420844L));
+
+        System.out.println(System.currentTimeMillis());
+        //System.out.println(new Date(1692618609660L));
         Solution s = new Solution();
         System.out.println(s.characterReplacement("ABAB", 2));
         System.out.println(s.characterReplacement("AABABBA", 1));
