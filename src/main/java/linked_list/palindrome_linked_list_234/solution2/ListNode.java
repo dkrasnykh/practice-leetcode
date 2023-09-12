@@ -20,35 +20,34 @@ public class ListNode {
 
 class Solution {
 
-    public boolean isPalindrome(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-        }
-
-        ListNode prev = null;
-        while (slow != null) {
-            ListNode tmp = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = tmp;
-        }
-
-        ListNode left = head, right = prev;
-        while(right != null){
-            if(left.val != right.val){
-                return false;
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int i = 0;
+        ListNode prev = null, curr = head;
+        while(curr != null){
+            if(i == n){
+                prev = head;
+            } else if (i > n){
+                prev = prev.next;
             }
-            left = left.next;
-            right = right.next;
+            i += 1;
+            curr = curr.next;
         }
-        return true;
+        if(prev == null){
+            return head.next;
+        }
+        prev.next = prev.next.next;
+        return head;
     }
 
     public static void main(String[] args) {
-
+        Solution s = new Solution();
+        ListNode head5 = new ListNode(5);
+        ListNode head4 = new ListNode(4, head5);
+        ListNode head3 = new ListNode(3, head4);
+        ListNode head2 = new ListNode(2, head3);
+        ListNode head1 = new ListNode(1, head2);
+        //[1,2,3,4,5]
+        ListNode result = s.removeNthFromEnd(head1, 2);
+        //System.out.println(s.isPalindrome(head));
     }
 }
