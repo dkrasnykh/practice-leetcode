@@ -44,6 +44,14 @@ class Solution {
     }
 
     public static void main(String[] args) {
-
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2, node1, node3);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node6 = new TreeNode(6, node5, node7);
+        TreeNode node4 = new TreeNode(4, node2, node6);
+        Solution s = new Solution();
+        System.out.println(s.preorderTraversal(node4));
     }
 }

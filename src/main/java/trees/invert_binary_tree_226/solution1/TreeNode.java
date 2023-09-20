@@ -1,4 +1,4 @@
-package trees.binary_tree_preorder_traversal_144_1.solution1;
+package trees.invert_binary_tree_226.solution1;
 
 //https://www.youtube.com/watch?v=OnSn2XEQ4MY
 public class TreeNode {
