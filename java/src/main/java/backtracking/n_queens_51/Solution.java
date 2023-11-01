@@ -6,16 +6,12 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution {
-    private void addSolution(List<List<String>> result, List<int[]> sol) {
+    private void addSolution(List<List<String>> result, List<Integer> sol) {
         List<String> tmp = new ArrayList<>();
         for (int i = 0; i < sol.size(); ++i) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < sol.size(); ++j) {
-                if (sol.get(i)[0] == i && sol.get(i)[1] == j) {
-                    sb.append('Q');
-                } else {
-                    sb.append('.');
-                }
+                sb.append(sol.get(i) == j ? 'Q' : '.');
             }
             tmp.add(sb.toString());
         }
@@ -24,7 +20,7 @@ public class Solution {
 
     private void dfs(int ind, int n,
                      List<List<String>> result,
-                     List<int[]> sol,
+                     List<Integer> sol,
                      Set<Integer> rows,
                      Set<Integer> cols,
                      Set<Integer> diag1,
@@ -37,7 +33,7 @@ public class Solution {
         for (int j = 0; j < n; ++j) {
             if (!rows.contains(ind) && !cols.contains(j) &&
                     !diag1.contains(ind - j) && !diag2.contains(ind + j)) {
-                sol.add(new int[]{ind, j});
+                sol.add(j);
                 rows.add(ind);
                 cols.add(j);
                 diag1.add(ind - j);
