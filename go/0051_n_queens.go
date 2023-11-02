@@ -17,20 +17,15 @@ func addSolution(result *[][]string, sol []int) {
 	*result = append(*result, tmp)
 }
 
-func dfs(ind int, n int,
-	result *[][]string,
-	sol []int,
-	rows map[int]struct{},
-	cols map[int]struct{},
-	diag1 map[int]struct{},
-	diag2 map[int]struct{}) {
-	//map[string]struct{} - множество
+func dfs(ind int, n int, result *[][]string, sol []int,
+	rows map[int]struct{}, cols map[int]struct{},
+	diag1 map[int]struct{}, diag2 map[int]struct{}) {
+
 	if len(sol) == n {
 		addSolution(result, sol)
 		return
 	}
-	//if _, ok := inputSet[v]; !ok {
-	//delete(m, k)
+
 	for j := 0; j < n; j++ {
 		_, ok1 := rows[ind]
 		_, ok2 := cols[j]
@@ -56,7 +51,4 @@ func solveNQueens(n int) [][]string {
 	result := make([][]string, 0)
 	dfs(0, n, &result, make([]int, 0), make(map[int]struct{}, n), make(map[int]struct{}, n), make(map[int]struct{}, n), make(map[int]struct{}, n))
 	return result
-}
-
-func main() {
 }
