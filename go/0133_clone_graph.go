@@ -24,8 +24,3 @@ func clone(node *Node, m map[int]*Node) *Node {
 	}
 	return copy
 }
-
-func main() {
-	node := &Node{Val: 1}
-	cloneGraph(node)
-}
