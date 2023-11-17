@@ -1,8 +1,8 @@
 package main
 
+//O(n * 2^n)
 func subsets(nums []int) [][]int {
 	n := len(nums)
-	used := make([]bool, n)
 	subset := make([]int, 0)
 	result := make([][]int, 0)
 
@@ -14,11 +14,9 @@ func subsets(nums []int) [][]int {
 			result = append(result, tmp)
 			return
 		}
-		used[i] = true
 		subset = append(subset, nums[i])
 		backtrack(i + 1)
 		subset = subset[:len(subset)-1]
-		used[i] = false
 		backtrack(i + 1)
 	}
 	backtrack(0)
