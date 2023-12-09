@@ -1,12 +1,6 @@
 package main
 
 func findOrder(numCourses int, prerequisites [][]int) []int {
-	/*
-		1. Построить граф
-		2. Строить топологическую сортировку и параллельно проверять на цикл
-		3. Если цикл найден, то выводить пустой массив
-		2. Если цикл не найден -> строить топологическую сортировку
-	*/
 	adj := make([][]int, numCourses)
 	for i := 0; i < len(prerequisites); i++ {
 		adj[prerequisites[i][1]] = append(adj[prerequisites[i][1]], prerequisites[i][0])
