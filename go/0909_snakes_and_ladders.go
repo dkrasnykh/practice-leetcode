@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func snakesAndLadders(board [][]int) int {
 	n := len(board)
 	a := make([][]int, n)
@@ -55,19 +53,4 @@ func snakesAndLadders(board [][]int) int {
 	} else {
 		return d[n*n]
 	}
-}
-
-func main() {
-	/*
-		board := [][]int{{-1, -1, -1, -1, -1, -1},
-			{-1, -1, -1, -1, -1, -1},
-			{-1, -1, -1, -1, -1, -1},
-			{-1, 35, -1, -1, 13, -1},
-			{-1, -1, -1, -1, -1, -1},
-			{-1, 15, -1, -1, -1, -1}}
-	*/
-	board := [][]int{{1, 1, -1},
-		{1, 1, 1},
-		{-1, 1, 1}}
-	fmt.Println(snakesAndLadders(board))
 }
