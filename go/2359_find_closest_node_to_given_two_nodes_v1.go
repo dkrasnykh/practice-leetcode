@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func closestMeetingNode1(edges []int, node1 int, node2 int) int {
 	adj := make([][]int, len(edges))
 	for i := 0; i < len(edges); i++ {
@@ -42,9 +40,4 @@ func closestMeetingNode1(edges []int, node1 int, node2 int) int {
 		}
 	}
 	return res
-}
-
-func main() {
-	edges := []int{4, 4, 8, -1, 9, 8, 4, 4, 1, 1}
-	fmt.Println(closestMeetingNode1(edges, 5, 6))
 }
