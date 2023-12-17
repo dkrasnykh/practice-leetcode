@@ -4,15 +4,16 @@ func isIsomorphic(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
-	var charMapS, charMapT [128]byte
-	for i := range s {
-		charS, charT := s[i], t[i]
-		if (charMapS[charS] != 0 && charMapS[charS] != charT) ||
-			(charMapT[charT] != 0 && charMapT[charT] != charS) {
+	st := make(map[byte]byte)
+	ts := make(map[byte]byte)
+	for i := 0; i < len(s); i++ {
+		si, oks := st[s[i]]
+		ti, okt := ts[t[i]]
+		if oks && !okt || !oks && okt || oks && okt && (si != t[i] || ti != s[i]) {
 			return false
-		} else {
-			charMapS[charS], charMapT[charT] = charT, charS
 		}
+		st[s[i]] = t[i]
+		ts[t[i]] = s[i]
 	}
 	return true
 }
