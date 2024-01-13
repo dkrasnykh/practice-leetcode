@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func wordPattern(pattern string, s string) bool {
 	s += ` `
 	words, space := make([]string, 0), -1
@@ -26,8 +24,4 @@ func wordPattern(pattern string, s string) bool {
 		m2[words[i]] = pattern[i]
 	}
 	return true
-}
-
-func main() {
-	fmt.Println(wordPattern(`abba`, `dog cat cat dog`))
 }
