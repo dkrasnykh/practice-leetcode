@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -33,10 +32,4 @@ func findDifference(nums1 []int, nums2 []int) [][]int {
 		return nums2[i] < nums2[j]
 	})
 	return [][]int{diff(nums1, nums2), diff(nums2, nums1)}
-}
-
-func main() {
-	//fmt.Println(findDifference([]int{1, 2, 3}, []int{2, 4, 6}))
-	fmt.Println(findDifference([]int{1, 2, 3, 3}, []int{1, 1, 2, 2}))
-	//fmt.Println(diff([]int{1, 1, 2, 2}, []int{1, 2, 3, 3}))
 }
